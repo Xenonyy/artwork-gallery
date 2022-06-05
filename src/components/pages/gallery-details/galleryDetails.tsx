@@ -6,7 +6,7 @@ import { AppVersion } from 'components/common/appVersion/appVersion';
 
 import { messages } from './messages';
 
-const WelcomeComponent: FC = () => {
+const GalleryDetailsPageComponent: FC = () => {
   return (
     <div>
       <h1 data-testid="title">
@@ -17,4 +17,4 @@ const WelcomeComponent: FC = () => {
   );
 };
 
-export const Welcome = memo(WelcomeComponent);
+export const GalleryDetailsPage = memo(GalleryDetailsPageComponent);

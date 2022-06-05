@@ -3,16 +3,16 @@ import { NextSeo } from 'next-seo';
 import { useIntl } from 'react-intl';
 
 import { DefaultLayout } from 'components/layouts/defaultLayout';
-import { GalleryListPage } from 'components/pages/gallery-list/galleryList';
+import { GalleryDetailsPage } from 'components/pages/gallery-details/galleryDetails';
 import { serverSideTranslations } from 'utils/serverSideTranslations';
 
-const HomePage: NextPage = () => {
+const GalleryDetails: NextPage = () => {
   const intl = useIntl();
 
   return (
     <DefaultLayout>
-      <NextSeo title={intl.formatMessage({ id: 'home:tab.title', defaultMessage: 'Homepage' })} />
-      <GalleryListPage />
+      <NextSeo title={intl.formatMessage({ id: 'details:tab.title', defaultMessage: 'Details' })} />
+      <GalleryDetailsPage />
     </DefaultLayout>
   );
 };
@@ -25,4 +25,4 @@ export const getStaticProps: GetStaticProps = async ctx => {
   };
 };
 
-export default HomePage;
+export default GalleryDetails;
