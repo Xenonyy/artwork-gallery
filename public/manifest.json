@@ -1,6 +1,6 @@
 {
-  "name": "NextJs Boilerplate",
-  "short_name": "NextJs Boilerplate",
+  "name": "Art Gallery App",
+  "short_name": "Art Gallery App",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",

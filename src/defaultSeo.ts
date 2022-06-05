@@ -1,3 +1,3 @@
 export const defaultSeo = {
-  titleTemplate: '%s - NextJs Boilerplate',
+  titleTemplate: '%s - ICF Tech Hungary Test',
 };
