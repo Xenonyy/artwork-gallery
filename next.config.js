@@ -6,8 +6,8 @@ const nextConfig = {
   distDir: 'build',
   i18n: {
     localeDetection: false,
-    locales: ['hu'],
-    defaultLocale: 'hu',
+    locales: ['en'],
+    defaultLocale: 'en',
   },
   eslint: {
     dirs: ['src'],
