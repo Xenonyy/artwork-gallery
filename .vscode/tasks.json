@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "cross-env NODE_OPTIONS='--inspect' next dev"
+    },
+    {
+      "type": "npm",
+      "script": "check-ts-types",
+      "problemMatcher": [],
+      "label": "npm: check-ts-types",
+      "detail": "tsc --noemit"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "next lint --dir src/"
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: test",
+      "detail": "jest --watch"
+    }
+  ]
+}
