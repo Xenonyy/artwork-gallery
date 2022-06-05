@@ -14,7 +14,7 @@
     "prepare": "husky install",
     "messages": "npm run messages:extract && npm run messages:compile",
     "messages:extract": "formatjs extract \"src/**/*.ts*\" --out-file src/locales/temp.json",
-    "messages:compile": "formatjs compile \"src/locales/temp.json\" --out-file src/locales/hu.json"
+    "messages:compile": "formatjs compile \"src/locales/temp.json\" --out-file src/locales/en.json"
   },
   "engines": {
     "node": ">=16.0.0",
