@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 
 import { defaultSeo } from 'defaultSeo';
+import '../dist/output.css';
 
 interface CustomAppProps extends AppProps {
   pageProps: {
