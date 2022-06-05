@@ -1,0 +1,9 @@
+{
+  "common:version": "Version: {value}",
+  "details:page.title": "Artwork Details",
+  "details:tab.title": "Details",
+  "favorite:page.title": "Favorite Artworks",
+  "favorites:tab.title": "Favorites",
+  "home:tab.title": "Homepage",
+  "list:page.title": "Artwork List"
+}
