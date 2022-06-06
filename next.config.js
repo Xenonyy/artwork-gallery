@@ -21,6 +21,9 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    domains: ['www.artic.edu'],
+  },
 };
 
 const plugins = [
