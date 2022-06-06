@@ -5,7 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
  */
 
 module.exports = {
-  content: ['./src//*.{ts,tsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     screens: {
       min: '320px',
@@ -17,10 +17,10 @@ module.exports = {
       white: '#fff',
       black: '#000',
       primary: {
-        DEFAULT: '#f07575',
+        DEFAULT: '#31d6ad',
       },
       secondary: {
-        DEFAULT: '#2e91d9',
+        DEFAULT: '#5653b0',
       },
     },
     extend: {
@@ -29,5 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 };
