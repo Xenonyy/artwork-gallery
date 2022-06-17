@@ -5,7 +5,7 @@ import type { FC } from 'react';
 import { useEffect, useState, useCallback, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { DropDownMenu } from 'components/common/dropdown/dropDownMenu';
+import { ListboxMenu } from 'components/common/dropdown/listboxMenu';
 import { GalleryListItem } from 'components/pages/gallery-list/galleryListItem';
 import { messages } from 'components/pages/gallery-list/messages';
 import { fetchArtworksAction } from 'redux/actions/fetchArtworks';
@@ -17,11 +17,12 @@ const GalleryListContentPageComponent: FC = ({}) => {
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const artworkData = useSelector((state: RootState) => state.artworks);
+  const artworkLimitData = useSelector((state: RootState) => state.artworkLimit);
 
   useEffect(() => {
-    void dispatch(fetchArtworksAction());
+    void dispatch(fetchArtworksAction(artworkLimitData));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [artworkLimitData]);
 
   const handleArtworkClick = useCallback(
     (id: number) => () => {
@@ -68,6 +69,7 @@ const GalleryListContentPageComponent: FC = ({}) => {
 
   return artworkData.data?.length > 0 ? (
     <section className="w-full h-full bg-secondary bg-opacity-70 flex justify-center items-center flex-row flex-wrap px-5 py-8 rounded-3xl">
+      <ListboxMenu />
       {artworkData.data?.map(
         (e: { id: number; alt_titles: string | null; title: string; image_id: string }) => {
           return (
