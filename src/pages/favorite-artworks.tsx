@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import { useIntl } from 'react-intl';
 
 import { DefaultLayout } from 'components/layouts/defaultLayout';
-import { GalleryFavoritesPage } from 'components/pages/gallery-favorites/galleryFavorites';
+import { FavoriteArtworksPage } from 'components/pages/favorite-artworks/favoriteArtworks';
 import { serverSideTranslations } from 'utils/serverSideTranslations';
 
 const GalleryFavorites: NextPage = () => {
@@ -14,7 +14,7 @@ const GalleryFavorites: NextPage = () => {
       <NextSeo
         title={intl.formatMessage({ id: 'favorites:tab.title', defaultMessage: 'Favorites' })}
       />
-      <GalleryFavoritesPage />
+      <FavoriteArtworksPage />
     </DefaultLayout>
   );
 };
