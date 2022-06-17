@@ -7,9 +7,11 @@ import { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
+import { Provider } from 'react-redux';
 
 import { defaultSeo } from 'defaultSeo';
 import '../styles/globals.css';
+import store from 'redux/store';
 
 interface CustomAppProps extends AppProps {
   pageProps: {
@@ -36,7 +38,9 @@ const CustomApp: FC<CustomAppProps> = ({
       <QueryClientProvider client={queryClient}>
         <Hydrate state={dehydratedState}>
           <IntlProvider locale={router.locale ?? ''} messages={translations}>
-            <Component {...pageProps} />
+            <Provider store={store}>
+              <Component {...pageProps} />
+            </Provider>
           </IntlProvider>
         </Hydrate>
       </QueryClientProvider>
