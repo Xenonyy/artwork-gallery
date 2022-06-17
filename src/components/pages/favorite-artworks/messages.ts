@@ -5,4 +5,8 @@ export const messages = defineMessages({
     id: 'favorite:page.title',
     defaultMessage: 'Favorite Artworks',
   },
+  loading: {
+    id: 'favorite:page.loading',
+    defaultMessage: 'Loading...',
+  },
 });
