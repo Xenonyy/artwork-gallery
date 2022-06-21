@@ -16,11 +16,12 @@ module.exports = {
       transparent: 'transparent',
       white: '#fff',
       black: '#000',
+      yellow: '#e8d15d',
       primary: {
-        DEFAULT: '#31d6ad',
+        DEFAULT: '#7d0909',
       },
       secondary: {
-        DEFAULT: '#5653b0',
+        DEFAULT: '#04175c',
       },
     },
     extend: {
