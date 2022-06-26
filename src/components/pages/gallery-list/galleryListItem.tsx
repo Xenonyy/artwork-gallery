@@ -50,9 +50,9 @@ const GalleryListItemComponent: FC<GalleryListItemTypes> = ({
     >
       <button className="absolute right-4 top-4 z-10" type="button" onClick={onFavoriteClick}>
         {favorite ? (
-          <FilledFavoriteIcon className="text-primary" />
+          <FilledFavoriteIcon className="text-primary scale-90" />
         ) : (
-          <FavoriteIcon className="text-primary" />
+          <FavoriteIcon className="text-primary scale-90" />
         )}
       </button>
       <Image
@@ -64,11 +64,14 @@ const GalleryListItemComponent: FC<GalleryListItemTypes> = ({
         width={detailsPage ? windowWidth * 0.65 : windowWidth / 4}
       />
       <span
-        className={clsx(`my-2 text-white text-center w-[${windowWidth / 4}]`, {
-          ['text-xs']: title ? title.length >= 15 : false,
-          ['text-sm']: title ? title.length < 15 : false,
-          ['text-base']: detailsPage,
-        })}
+        className={clsx(
+          `my-2 text-white text-center text-ellipsis whitespace-nowrap overflow-hidden w-[50%]`,
+          {
+            ['text-xs']: title ? title.length >= 15 : false,
+            ['text-sm']: title ? title.length < 15 : false,
+            ['text-base']: detailsPage,
+          },
+        )}
       >
         {title}
       </span>
