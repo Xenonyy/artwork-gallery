@@ -10,7 +10,7 @@ export const Container: FC<ContainerTypes> = ({ children, alignStart, className 
   return (
     <section
       className={clsx(
-        'mt-20 flex py-10 px-20 flex-col justify-start min-w-screen min-h-screen',
+        'mt-20 flex py-10 px-14 flex-col justify-start min-w-screen min-h-screen',
         className,
         {
           ['items-start']: alignStart,
