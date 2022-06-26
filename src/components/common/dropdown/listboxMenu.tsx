@@ -36,7 +36,7 @@ export const ListboxMenu: FC = ({}) => {
   }, [selectedOption]);
 
   return (
-    <div className="w-5/6 h-10 text-white flex flex-col justify-center items-end">
+    <div className="h-10 text-white flex flex-col justify-center items-end">
       <Listbox value={selectedOption} onChange={setSelectedOption}>
         <div className="relative mt-1 z-20 min-w-[12em] w-fit text-black">
           <Listbox.Button className="relative w-full cursor-default flex flex-row justify-center items-center rounded-lg bg-white py-2 pl-3 pr-1 text-left shadow-md focus:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary sm:text-sm">
