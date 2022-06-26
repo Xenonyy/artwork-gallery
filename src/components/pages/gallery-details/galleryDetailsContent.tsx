@@ -80,7 +80,7 @@ const GalleryDetailsContentPageComponent: FC = ({}) => {
         </div>
         <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
           <p className="mx-2 text-secondary">{messages.description.defaultMessage}</p>
-          <p>{artworkData.thumbnail.alt_text}</p>
+          <p>{artworkData.thumbnail?.alt_text}</p>
         </div>
         <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
           <p className="mx-2 text-secondary">{messages.artist_title.defaultMessage}</p>
