@@ -89,7 +89,7 @@ const PaginationComponent: FC<PaginationTypes> = ({
   }, [getRenderButtonsData, pageCurrent, handleClickPage]);
 
   return (
-    <div className="flex justify-between flex-row flex-wrap items-center py-6 pl-4 w-1/2 bg-white rounded-xl border border-secondary sm:pl-6">
+    <div className="flex justify-between flex-row min-w-min flex-wrap items-center py-6 pl-4 w-1/2 bg-white rounded-xl border border-secondary sm:pl-6">
       <PaginationText resultFrom={resultFrom} resultTo={resultTo} resultTotal={resultTotal} />
       <nav className="inline-flex relative space-x-0 w-auto px-6">
         <PaginationButton start handleClick={handlePrevPage} />
