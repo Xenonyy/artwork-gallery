@@ -9,7 +9,7 @@ interface HeaderItemTypes {
 const HeaderItemComponent: FC<HeaderItemTypes> = ({ translation, href }) => {
   return (
     <a
-      className="text-white text-sm mx-4 hover:text-secondary cursor-pointer hover:drop-shadow-sm duration-[400ms] transition-all"
+      className="text-white text-sm mx-4 hover:text-black cursor-pointer hover:drop-shadow-sm duration-[400ms] transition-all"
       href={href}
     >
       {translation}
