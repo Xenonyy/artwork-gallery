@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { memo } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 import { FavoriteIcon } from 'assets/favorite';
 import { FilledFavoriteIcon } from 'assets/favorite-filled';
@@ -26,6 +26,14 @@ const GalleryListItemComponent: FC<GalleryListItemTypes> = ({
   onFavoriteClick,
   favorite,
 }) => {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setWindowWidth(document.querySelector('body')?.clientWidth ?? 0);
+    }
+  }, []);
+
   return (
     // TODO: CSS FOR MOBILE
     <div
@@ -51,12 +59,12 @@ const GalleryListItemComponent: FC<GalleryListItemTypes> = ({
         priority
         alt={alt}
         className={!detailsPage ? 'hover:scale-110 transition-all duration-500' : ''}
-        height={detailsPage ? 1200 : 500}
+        height={detailsPage ? windowWidth * 0.65 : windowWidth / 4}
         src={`${QueryKeys.ARTWORK_IMAGE + src}/full/843,/0/default.jpg`}
-        width={detailsPage ? 1200 : 500}
+        width={detailsPage ? windowWidth * 0.65 : windowWidth / 4}
       />
       <span
-        className={clsx('my-2 text-white text-center w-[500px]', {
+        className={clsx(`my-2 text-white text-center w-[${windowWidth / 4}]`, {
           ['text-xs']: title ? title.length >= 15 : false,
           ['text-sm']: title ? title.length < 15 : false,
           ['text-base']: detailsPage,
