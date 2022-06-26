@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import { useCallback, useState, useEffect, memo } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { StatusMessage } from 'components/common/statusMessage/statusMessage';
 import { messages } from 'components/pages/gallery-details/messages';
 import { GalleryListItem } from 'components/pages/gallery-list/galleryListItem';
 import { fetchSpecificArtworkAction } from 'redux/actions/fetchSpecificArtwork';
@@ -10,6 +11,7 @@ import type { AppDispatch, RootState } from 'redux/store';
 import type { SpecificArtworkResponseType } from 'types/specificArtworkResponseType';
 
 const GalleryDetailsContentPageComponent: FC = ({}) => {
+  const intl = useIntl();
   const dispatch = useDispatch<AppDispatch>();
   const artworkIdData = useSelector((state: RootState) => state.artworkId);
   const artworkData = useSelector(
@@ -91,13 +93,26 @@ const GalleryDetailsContentPageComponent: FC = ({}) => {
       </div>
     </div>
   ) : artworkStatus === 'pending' ? (
-    <section className="min-w-[30em] min-h-[15em] text-white text-2xl font-bold bg-secondary bg-opacity-70 flex justify-center items-center flex-row px-5 py-8 rounded-3xl">
-      <FormattedMessage defaultMessage="Loading..." id="common:loading" />
-    </section>
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'Loading...',
+        id: 'common:loading',
+      })}
+    />
+  ) : artworkStatus === 'rejected' ? (
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'Error',
+        id: 'common:error',
+      })}
+    />
   ) : (
-    <section className="min-w-[30em] min-h-[15em] text-white text-2xl font-bold bg-secondary bg-opacity-70 flex justify-center items-center px-5 py-8 rounded-3xl">
-      <FormattedMessage defaultMessage="Error" id="common:error" />
-    </section>
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'No results',
+        id: 'common:no-results',
+      })}
+    />
   );
 };
 

@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
 import { useCallback, useEffect, useState, memo } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 
+import { StatusMessage } from 'components/common/statusMessage/statusMessage';
 import { GalleryListItem } from 'components/pages/gallery-list/galleryListItem';
 import { fetchSpecificArtworkAction } from 'redux/actions/fetchSpecificArtwork';
 import { setArtworkIdAction } from 'redux/actions/setArtworkId';
@@ -13,6 +14,7 @@ import type { SpecificArtworkResponseType } from 'types/specificArtworkResponseT
 import { webPaths } from 'webPaths';
 
 const FavoriteArtworksContentComponent: FC = ({}) => {
+  const intl = useIntl();
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const [favoriteArtworksData] = useState<SpecificArtworkResponseType[]>([]);
@@ -102,13 +104,26 @@ const FavoriteArtworksContentComponent: FC = ({}) => {
           })}
     </section>
   ) : favoriteArtworksStatus === 'pending' ? (
-    <section className="min-w-[30em] min-h-[15em] text-white text-2xl font-bold bg-secondary bg-opacity-70 flex justify-center items-center px-5 py-8 rounded-3xl">
-      <FormattedMessage defaultMessage="Loading..." id="common:loading" />
-    </section>
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'Loading...',
+        id: 'common:loading',
+      })}
+    />
+  ) : favoriteArtworksStatus === 'rejected' ? (
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'Error',
+        id: 'common:error',
+      })}
+    />
   ) : (
-    <section className="min-w-[30em] min-h-[15em] text-white text-2xl font-bold bg-secondary bg-opacity-70 flex justify-center items-center px-5 py-8 rounded-3xl">
-      <FormattedMessage defaultMessage="Error" id="common:error" />
-    </section>
+    <StatusMessage
+      translation={intl.formatMessage({
+        defaultMessage: 'No results',
+        id: 'common:no-results',
+      })}
+    />
   );
 };
 
