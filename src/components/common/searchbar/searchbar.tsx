@@ -19,12 +19,13 @@ const SearchBarComponent: FC<SearchBarTypes> = ({ onClick }) => {
 
   const handleInputValueChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    dispatch(setSearchDataAction(e.target.value));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick = useCallback(() => {
-    void dispatch(setSearchDataAction(String(inputValue)));
     onClick();
-  }, [dispatch, inputValue, onClick]);
+  }, [onClick]);
 
   return (
     <div className="w-auto rounded-md bg-primary p-2 flex justify-between  items-center">
