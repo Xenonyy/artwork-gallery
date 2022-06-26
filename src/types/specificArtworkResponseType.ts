@@ -5,7 +5,9 @@ export interface SpecificArtworkResponseType {
   image_id: string;
   artist_title: string;
   department_title: string;
-  thumbnail: {
-    alt_text: string;
-  };
+  thumbnail:
+    | {
+        alt_text: string;
+      }
+    | undefined;
 }
