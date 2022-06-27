@@ -96,15 +96,15 @@ const GalleryListContentPageComponent: FC = ({}) => {
   // TOOD: search next page
   const handleSearchPageClick = useCallback(
     (i: number) => {
-      void dispatch(
-        fetchArtworksAction({
-          limit: reduxStore.artworkLimit,
-          page: String(i),
-        }),
-      );
+      //   void dispatch(
+      //     fetchArtworkSearchAction({
+      //       search: reduxStore.searchData,
+      //       page: String(i),
+      //     }),
+      //   );
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [reduxStore.artworkLimit],
+    [reduxStore.artworkLimit, reduxStore.searchData],
   );
 
   const [searchedArtworkData, setSearchedArtworkData] = useState<SearchedArtworkType[] | []>([]);
