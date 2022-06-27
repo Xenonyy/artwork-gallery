@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StatusMessage } from 'components/common/statusMessage/statusMessage';
+import { GalleryDetailsItem } from 'components/pages/gallery-details/galleryDetailsItem';
 import { messages } from 'components/pages/gallery-details/messages';
 import { GalleryListItem } from 'components/pages/gallery-list/galleryListItem';
 import { fetchSpecificArtworkAction } from 'redux/actions/fetchSpecificArtwork';
@@ -74,22 +75,19 @@ const GalleryDetailsContentPageComponent: FC = ({}) => {
       />
       <div className="flex h-full w-full justify-start items-center flex-col">
         <p className="text-2xl mb-10">{messages.information.defaultMessage}</p>
-        <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
-          <p className="mx-2 text-secondary">{messages.artwork_title.defaultMessage}</p>
-          <p>{artworkData.title}</p>
-        </div>
-        <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
-          <p className="mx-2 text-secondary">{messages.description.defaultMessage}</p>
-          <p>{artworkData.thumbnail?.alt_text}</p>
-        </div>
-        <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
-          <p className="mx-2 text-secondary">{messages.artist_title.defaultMessage}</p>
-          <p>{artworkData.artist_title}</p>
-        </div>
-        <div className="flex h-auto w-auto justify-center items-start flex-row p-2">
-          <p className="mx-2 text-secondary">{messages.department.defaultMessage}</p>
-          <p>{artworkData.department_title}</p>
-        </div>
+        <GalleryDetailsItem data={artworkData.title} title={messages.artist_title.defaultMessage} />
+        <GalleryDetailsItem
+          data={artworkData.thumbnail?.alt_text}
+          title={messages.description.defaultMessage}
+        />
+        <GalleryDetailsItem
+          data={artworkData.artist_title}
+          title={messages.artist_title.defaultMessage}
+        />
+        <GalleryDetailsItem
+          data={artworkData.department_title}
+          title={messages.department.defaultMessage}
+        />
       </div>
     </div>
   ) : artworkStatus === 'pending' ? (
